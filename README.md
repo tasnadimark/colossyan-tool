@@ -1,15 +1,26 @@
-# Video Script Generator
+# Video Tools - Script & Transcript Generator
 
-A simple, embeddable video script generator for creating engaging video scripts quickly.
+A simple, embeddable tool for creating video scripts and generating transcripts from video files.
 
 ## Features
 
-- 📝 Simple form-based interface
-- 🎨 Modern, gradient design
+### Script Generator
+- 📝 Simple form-based interface for creating video scripts
+- 🎯 Customizable tone, duration, audience, and key points
+- 🎨 Multiple tone options (Professional, Casual, Enthusiastic, Educational, Storytelling)
+- 📋 One-click copy to clipboard
+
+### Transcript Generator
+- 🎙️ Upload video/audio files for automatic transcription
+- 🤖 Uses OpenAI Whisper API for accurate transcription
+- 📁 Supports multiple formats: MP4, MOV, AVI, MP3, WAV, M4A
+- 🔒 API key stored locally in your browser
+
+### General Features
+- 🎨 Modern, gradient design with tab interface
 - 📱 Fully responsive
 - 🔗 iframe-ready
-- 📋 One-click copy to clipboard
-- ⚡ No dependencies - pure HTML/CSS/JavaScript
+- ⚡ Pure HTML/CSS/JavaScript (no build step required)
 
 ## Usage
 
@@ -38,12 +49,21 @@ Embed in your website:
 
 ## How It Works
 
+### Script Generator
 The generator creates structured video scripts based on:
 - **Topic**: The main subject of your video
 - **Duration**: Target length in seconds (15-600s)
 - **Tone**: Professional, Casual, Enthusiastic, Educational, or Storytelling
 - **Audience**: Who you're targeting
 - **Key Points**: Optional specific points to cover
+
+### Transcript Generator
+Converts video/audio to text transcripts:
+- **Requirements**: OpenAI API key (get one at [platform.openai.com](https://platform.openai.com/api-keys))
+- **File Support**: Video and audio files up to 25MB
+- **Processing**: Uses OpenAI's Whisper model for high-quality transcription
+- **Privacy**: Your API key is stored locally in your browser
+- **Cost**: ~$0.006 per minute of audio (see [OpenAI pricing](https://openai.com/api/pricing/))
 
 ## Customization
 
