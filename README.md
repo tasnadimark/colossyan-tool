@@ -22,10 +22,33 @@ A simple, embeddable tool for creating video scripts and generating transcripts 
 - 🔗 iframe-ready
 - ⚡ Pure HTML/CSS/JavaScript (no build step required)
 
-## Usage
+## Setup & Usage
 
-### Standalone
-Simply open `index.html` in your browser.
+### Local Development
+
+1. **Install dependencies:**
+```bash
+npm install
+```
+
+2. **Create .env file** (see ENV_SETUP.md for details):
+```bash
+OPENAI_API_KEY=your_openai_api_key_here
+PORT=3000
+```
+
+3. **Start the server:**
+```bash
+npm start
+```
+
+4. **Open in browser:**
+```
+http://localhost:3000
+```
+
+### Standalone (Script Generator Only)
+Simply open `index.html` in your browser. Note: Transcript generator requires the backend server.
 
 ### As an iframe
 Embed in your website:
@@ -42,10 +65,28 @@ Embed in your website:
 
 ### Deployment Options
 
-1. **GitHub Pages**: Push to a repo and enable GitHub Pages
-2. **Netlify**: Drag and drop the file
+**For Full Functionality (Script + Transcript):**
+1. **Heroku**: 
+   - Connect to GitHub repo
+   - Add `OPENAI_API_KEY` in Config Vars
+   - Deploy
+
+2. **Railway.app**:
+   - Connect GitHub repo
+   - Add environment variable `OPENAI_API_KEY`
+   - Deploy
+
+3. **Render**:
+   - Connect GitHub repo
+   - Add environment variable `OPENAI_API_KEY`
+   - Deploy as Web Service
+
+4. **Any Node.js hosting**: Deploy with your .env file
+
+**For Script Generator Only (No Backend):**
+1. **GitHub Pages**: Push to repo and enable GitHub Pages
+2. **Netlify**: Drag and drop the `index.html` file
 3. **Vercel**: Deploy with `vercel`
-4. **Any web server**: Upload `index.html` to your hosting
 
 ## How It Works
 
@@ -59,10 +100,10 @@ The generator creates structured video scripts based on:
 
 ### Transcript Generator
 Converts video/audio to text transcripts:
-- **Requirements**: OpenAI API key (get one at [platform.openai.com](https://platform.openai.com/api-keys))
+- **Requirements**: Backend server with OpenAI API key configured
 - **File Support**: Video and audio files up to 25MB
 - **Processing**: Uses OpenAI's Whisper model for high-quality transcription
-- **Privacy**: Your API key is stored locally in your browser
+- **Security**: API key is stored securely on the server (never exposed to clients)
 - **Cost**: ~$0.006 per minute of audio (see [OpenAI pricing](https://openai.com/api/pricing/))
 
 ## Customization
