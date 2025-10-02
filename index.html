@@ -591,10 +591,12 @@
 
         let selectedFile = null;
 
-        // API endpoint - change this to your deployed server URL
+        // API endpoint - Update this with your deployed backend URL
+        // For local development: http://localhost:3001
+        // For production: https://your-backend.railway.app (or your deployed backend URL)
         const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:3000' 
-            : window.location.origin;
+            ? 'http://localhost:3001' 
+            : 'https://your-backend-url-here.com'; // TODO: Replace with your actual backend URL
 
         // File upload interactions
         fileUploadArea.addEventListener('click', () => videoFile.click());

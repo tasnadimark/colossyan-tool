@@ -12,8 +12,22 @@ const upload = multer({
 });
 
 // Enable CORS for your frontend domain
+const allowedOrigins = [
+    'https://tasnadimark.github.io',
+    'http://localhost:3001',
+    'http://127.0.0.1:3001'
+];
+
 app.use(cors({
-    origin: '*' // In production, replace with your specific domain
+    origin: function(origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
 }));
 
 app.use(express.json());
